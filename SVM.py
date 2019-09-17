@@ -34,6 +34,9 @@ for i in content:
     y_test=y.loc[~y.index.isin(y_train.index)]
     x_tra=np.array(x_train)
     y_tra=np.array(y_train)
+    s_data_x_tra,s_data_y_tra=s.fit_sample(x_tra,y_tra)
+    s_data_x_train=pd.DataFrame(data=s_data_x_tra,columns=columns)
+    s_data_y_train=pd.DataFrame(data=s_data_y_tra,columns=["class"])
     x_tes=np.array(x_test)
     y_tes=np.array(y_test)
     from sklearn import svm
